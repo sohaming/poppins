@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Navbar</title>
+  <title>Navbar with Slideshow</title>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <a href="#">PoPPins</a>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">Explore</a></li>
       <li><a href="#">QnA</a></li>
@@ -24,6 +26,49 @@
     </div>
   </nav>
 
-  <script src="main.css"></script>
+  <div class="slideshow-container">
+    <div class="slide">
+        <img src="file:///C:/Users/Soham's%20PC/OneDrive/Documents/GitHub/poppins/img/new-pune-public-school-pune-398110083.jpg" alt="Slide 1">
+           
+    </div>
+    <div class="slide">
+        <img src="file:///C:/Users/Soham's%20PC/OneDrive/Documents/GitHub/poppins/img/bishop.jpg" alt="Slide 2">
+        
+    </div>
+    <div class="slide">
+        <img src="file:///C:/Users/Soham's%20PC/OneDrive/Documents/GitHub/poppins/img/pwar%20public.jpg" alt="Slide 3">
+        <div class="search-overlay">
+          <input type="text" placeholder="Search schools, topics..." class="search-input">
+          <button class="search-btn">Search</button>
+        </div>
+    </div>
+    <button class="prev" onclick="changeSlide(-1)"></button>
+    <button class="next" onclick="changeSlide(1)"></button>
+  </div>
+
+
+
+<div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<div class="card">
+ <div>
+
+</div>
+<div>
+<h2>Manjri</h2>
+</div>
+<div>
+  ]<h2>Hadpsar</h2>
+  </div>
+  <div>
+    <h2>PCMC</h2>
+    </div>
+    <div>
+      <h2>Loni</h2>
+      </div>
+  <script src="main.js"></script>
 </body>
 </html>

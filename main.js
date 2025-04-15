@@ -1,27 +1,30 @@
-// Sidebar toggle functionality
-const openBtn = document.getElementById("open-btn");
-const closeBtn = document.getElementById("close-btn");
-const sidebar = document.getElementById("sidebar");
+// Navbar hamburger toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
 
-// Open sidebar
-openBtn.addEventListener("click", () => {
-  sidebar.style.width = "250px";
-  document.body.style.overflow = "hidden";  // Disable body scroll when sidebar is open
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });
 
-// Close sidebar
-closeBtn.addEventListener("click", () => {
-  sidebar.style.width = "0";
-  document.body.style.overflow = "auto";  // Re-enable body scroll when sidebar is closed
-});
+// Slideshow logic
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
 
-// Close sidebar when a link is clicked (for mobile view)
-const navItems = document.querySelectorAll('.sidebar-links a');
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      sidebar.style.width = "0";  // Close sidebar after clicking a link
-      document.body.style.overflow = "auto"; // Re-enable scrolling
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
     }
   });
+}
+
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 2000);
+document.querySelector('.search-btn').addEventListener('click', () => {
+  const query = document.querySelector('.search-input').value;
+  alert(`You searched for: ${query}`);
+  // You can replace alert with redirection or search logic
 });
